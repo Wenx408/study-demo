@@ -20,3 +20,8 @@
 ###### [Java学习笔记8-锁相关](https://blog.csdn.net/jwx90312/article/details/103073041)
 
 ###### [Java学习笔记9-AQS抽象队列同步器](https://blog.csdn.net/jwx90312/article/details/103087531)
+
+###### [Java学习笔记10-并发容器类](https://blog.csdn.net/jwx90312/article/details/103115533)
+
+###### [Java学习笔记11-多线程工具类实战](https://blog.csdn.net/jwx90312/article/details/103124334)
+
