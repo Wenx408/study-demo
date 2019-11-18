@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/17 13:41
  * @Modified By：
  */
-public class ArrayBlockingQueueTest {
+public class ArrayBlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         // 构造时设置队列大小，还可以设置 公平（FIFO先进先出原则） / 非公平
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(3, true);

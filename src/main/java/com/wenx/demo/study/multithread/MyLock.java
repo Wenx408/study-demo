@@ -14,7 +14,7 @@ import java.util.concurrent.locks.LockSupport;
  * @Date: Created in 2019/11/15 11:57
  * @Modified By：
  */
-public class MyLockTest implements Lock {
+public class MyLock implements Lock {
     // 当前锁的拥有者
     volatile AtomicReference<Thread> owner = new AtomicReference<>();
     // 等待集合（锁池）

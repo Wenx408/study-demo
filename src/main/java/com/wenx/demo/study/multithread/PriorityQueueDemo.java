@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @Date: Created in 2019/11/17 19:15
  * @Modified By：
  */
-public class PriorityQueueTest {
+public class PriorityQueueDemo {
     public static void main(String[] args) {
         PriorityQueue<PriorityMessage> priorityQueue = new PriorityQueue<>(new Comparator<PriorityMessage>() {
             @Override

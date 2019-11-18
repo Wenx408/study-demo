@@ -8,7 +8,7 @@ import java.util.concurrent.locks.LockSupport;
  * @Date: Created in 2019/11/11 21:42
  * @Modified By：
  */
-public class ParkUnparkTest {
+public class ParkUnparkDemo {
     public static Object baozi = null;
 
     public static void main(String[] args) throws InterruptedException {

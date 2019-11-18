@@ -12,7 +12,7 @@ import java.util.concurrent.locks.LockSupport;
  * @Date: Created in 2019/11/15 13:19
  * @Modified By：
  */
-public class AqsTest {
+public class MyAqs {
     // 当前锁的拥有者
     volatile AtomicReference<Thread> owner = new AtomicReference<>();
     // 等待集合（锁池）

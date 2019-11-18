@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @Date: Created in 2019/11/15 9:19
  * @Modified By：
  */
-public class ReadWriteLockTest {
+public class ReadWriteLockDemo {
     ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
     /**
@@ -48,19 +48,19 @@ public class ReadWriteLockTest {
     }
 
     public static void main(String[] args) {
-        ReadWriteLockTest readWriteLockTest = new ReadWriteLockTest();
+        ReadWriteLockDemo readWriteLockDemo = new ReadWriteLockDemo();
 
         // 多线程同时读/写
         new Thread(() -> {
-            readWriteLockTest.read(Thread.currentThread());
+            readWriteLockDemo.read(Thread.currentThread());
         }).start();
 
         new Thread(() -> {
-            readWriteLockTest.read(Thread.currentThread());
+            readWriteLockDemo.read(Thread.currentThread());
         }).start();
 
         new Thread(() -> {
-            readWriteLockTest.write(Thread.currentThread());
+            readWriteLockDemo.write(Thread.currentThread());
         }).start();
     }
 

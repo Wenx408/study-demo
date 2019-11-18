@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/13 20:19
  * @Modified By：
  */
-public class VisibilityTest {
+public class VisibilityDemo {
     //private static boolean flag = true;
     private static volatile boolean flag = true;
 
@@ -18,7 +18,7 @@ public class VisibilityTest {
             @Override
             public void run() {
                 int i = 0;
-                while (VisibilityTest.flag) {
+                while (VisibilityDemo.flag) {
                     //synchronized (this) {
                         i++;
                     //}
@@ -29,7 +29,7 @@ public class VisibilityTest {
 
         TimeUnit.SECONDS.sleep(2);
         // 设置flag为false，使线程结束while循环，输出结果
-        VisibilityTest.flag = false;
+        VisibilityDemo.flag = false;
         System.out.println("flag设置为false");
     }
 }

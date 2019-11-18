@@ -11,14 +11,14 @@ import java.util.concurrent.locks.LockSupport;
  * @Modified By：
  */
 // 分析特征：构造函数/泛型/Runnable/GET返回结果
-public class MyFutureTaskTest<T> implements Runnable {
+public class MyFutureTask<T> implements Runnable {
     Callable<T> callable; //包装了业务逻辑代码
     T result; //线程执行结果
     volatile String state = "NEW"; //任务执行的状态
     // 容器把等待中的线程保存起来 -- 停车场
     LinkedBlockingQueue<Thread> waiters = new LinkedBlockingQueue<>();
 
-    public MyFutureTaskTest(Callable<T> callable) {
+    public MyFutureTask(Callable<T> callable) {
         this.callable = callable;
     }
 

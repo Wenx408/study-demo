@@ -10,9 +10,9 @@ import java.util.concurrent.locks.Lock;
  * @Date: Created in 2019/11/15 13:53
  * @Modified By：
  */
-public class AqsLockTest implements Lock {
+public class MyAqsLock implements Lock {
     // 抽象工具类AQS
-    AqsTest aqs = new AqsTest() {
+    MyAqs aqs = new MyAqs() {
         @Override
         public boolean tryAcquire() {
             return owner.compareAndSet(null, Thread.currentThread());

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/11 21:43
  * @Modified By：
  */
-public class ThreadPoolExecutorTest {
+public class ThreadPoolExecutorDemo {
     public static void main(String[] args) throws InterruptedException {
         // 创建一个 核心线程数量为2，最大线程数量为5，等待队列为3 的线程池，相当于最大容纳8个任务
         // 默认的策略是抛出RejectedExecutionException异常，java.util.concurrent.ThreadPoolExecutor.AbortPolicy

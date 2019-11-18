@@ -6,7 +6,7 @@ package com.wenx.demo.study.multithread;
  * @Date: Created in 2019/11/11 21:42
  * @Modified By：
  */
-public class ThreadLocalTest {
+public class ThreadLocalDemo {
     public static ThreadLocal<String> tl = new ThreadLocal<>();
 
     public static void main(String[] args) throws InterruptedException {

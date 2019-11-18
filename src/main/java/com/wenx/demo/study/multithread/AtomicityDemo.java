@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.LongAdder;
  * @Date: Created in 2019/11/14 12:55
  * @Modified By：
  */
-public class AtomicityTest {
+public class AtomicityDemo {
     //volatile int i = 0;
     //AtomicInteger i = new AtomicInteger(0);
     LongAdder i = new LongAdder();
@@ -59,7 +59,7 @@ public class AtomicityTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        AtomicityTest demoTest = new AtomicityTest();
+        AtomicityDemo demoTest = new AtomicityDemo();
 
         for (int i = 0; i < 2; i++) {
             new Thread(() -> {

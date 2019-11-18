@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/17 15:18
  * @Modified By：
  */
-public class SynchronousQueueTest {
+public class SynchronousQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>();
 

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/17 21:02
  * @Modified By：
  */
-public class DelayQueueTest {
+public class DelayQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         DelayQueue<DelayedMessage> delayQueue = new DelayQueue<>();
 

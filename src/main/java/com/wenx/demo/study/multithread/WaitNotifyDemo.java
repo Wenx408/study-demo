@@ -6,7 +6,7 @@ package com.wenx.demo.study.multithread;
  * @Date: Created in 2019/11/11 21:41
  * @Modified By：
  */
-public class WaitNotifyTest {
+public class WaitNotifyDemo {
     public static Object lock = new Object();
     public static Object baozi = null;
 

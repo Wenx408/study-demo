@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: Created in 2019/11/11 21:47
  * @Modified By：
  */
-public class ScheduledThreadPoolExecutorTest {
+public class ScheduledThreadPoolExecutorDemo {
     public static void main(String[] args) throws InterruptedException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         ScheduledThreadPoolExecutor threadPoolExecutor = new ScheduledThreadPoolExecutor(5);

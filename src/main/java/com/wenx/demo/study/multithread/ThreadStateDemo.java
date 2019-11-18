@@ -6,7 +6,7 @@ package com.wenx.demo.study.multithread;
  * @Date: Created in 2019/11/11 21:40
  * @Modified By：
  */
-public class ThreadStateTest {
+public class ThreadStateDemo {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
             System.out.println("线程1当前状态2：" + Thread.currentThread().getState());
@@ -33,11 +33,11 @@ public class ThreadStateTest {
         System.out.println("线程2当前状态5：" + t2.getState());
 
         Thread t3 = new Thread(() -> {
-            synchronized (ThreadStateTest.class) {
+            synchronized (ThreadStateDemo.class) {
                 System.out.println("线程3当前状态4：" + Thread.currentThread().getState());
             }
         });
-        synchronized (ThreadStateTest.class) {
+        synchronized (ThreadStateDemo.class) {
             System.out.println("线程3当前状态1：" + t3.getState());
             t3.start();
             System.out.println("线程3当前状态2：" + t3.getState());

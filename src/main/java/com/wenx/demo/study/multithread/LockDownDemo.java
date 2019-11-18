@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @Date: Created in 2019/11/15 11:28
  * @Modified By：
  */
-public class LockDownTest {
+public class LockDownDemo {
     // 创建一个map用于缓存
     private Map<String, Object> map = new HashMap<>();
     private static ReadWriteLock rwl = new ReentrantReadWriteLock();
@@ -49,6 +49,6 @@ public class LockDownTest {
         // 1 读取缓存里面的数据 cache.query()
         // 2 如果缓存没数据，则去数据库里面查询 database.query()
         // 3 查询完成之后，将结果放到缓存里面 cache.put(data)
-        new LockDownTest().get("key1");
+        new LockDownDemo().get("key1");
     }
 }
