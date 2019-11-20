@@ -23,7 +23,7 @@ public class BIOServer {
         ServerSocket server = new ServerSocket(20480);
         System.out.println("Socket服务端-启动");
         while (!server.isClosed()) {
-            // 等待客户端的连接，如果没有获取连接
+            // 等待客户端的连接，如果没有获取连接则阻塞
             Socket client = server.accept();
             System.out.println("接收到客户端连接：" + client);
             // 为每个客户端连接开启一个线程

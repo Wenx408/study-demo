@@ -28,7 +28,7 @@ public class BIOClient {
 
         new Thread(() -> {
             String msg;
-            // 接收从客户端发送过来的数据
+            // 接收从键盘发送过来的数据
             try {
                 System.out.print("请输入信息：");
                 while ((msg = input.readLine()) != null) {
