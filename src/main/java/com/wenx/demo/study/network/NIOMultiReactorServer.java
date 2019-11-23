@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date: Created in 2019/11/19 13:26
  * @Modified By：
  */
-public class NIOMultipleReactorsServer {
+public class NIOMultiReactorServer {
     /**
      * 处理业务操作的线程
      */
@@ -198,7 +198,7 @@ public class NIOMultipleReactorsServer {
     }
 
     public static void main(String[] args) throws Exception {
-        NIOMultipleReactorsServer server = new NIOMultipleReactorsServer();
+        NIOMultiReactorServer server = new NIOMultiReactorServer();
         server.newGroup(); // 1、创建main和sub两组线程
         server.initAndRegister(); // 2、创建serverSocketChannel，注册到mainReactor线程上的selector上
         server.bind(); // 3、为serverSocketChannel绑定端口
