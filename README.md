@@ -25,3 +25,14 @@
 
 ###### [Java学习笔记11-多线程工具类实战](https://blog.csdn.net/jwx90312/article/details/103124334)
 
+## java网络编程系列
+###### [Java学习笔记12-TCP、UDP协议](https://blog.csdn.net/jwx90312/article/details/103127098)
+
+###### [Java学习笔记13-BIO阻塞、NIO非阻塞网络编程](https://blog.csdn.net/jwx90312/article/details/103167481)
+
+###### [Java学习笔记14-Netty线程模型及源码解析](https://blog.csdn.net/jwx90312/article/details/103208799)
+
+###### [Java学习笔记15-Netty职责链Pipeline详解](https://blog.csdn.net/jwx90312/article/details/103242415)
+
+###### [Java学习笔记16-Netty缓冲区ByteBuf详解](https://blog.csdn.net/jwx90312/article/details/103266002)
+
