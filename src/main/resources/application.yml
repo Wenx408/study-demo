@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/study_demo?characterEncoding=utf8&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: 1234@abcd
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxOpenPreparedStatements: 20
+
+redis:
+  host: 192.168.1.176
+  port: 6379
+  database: 1
+  # 是否分布式（分布式的password中不能有“,”字符）
+  isSharded: false
+  # 最大连接数
+  maxTotal: 2000
+  # 最大空闲连接数
+  maxIdle: 1000
+  # 建立连接时，最大等待时间
+  maxWaitMillis: 60000
+  # 建立连接时，是否进行有效性检查
+  testOnBorrow: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
