@@ -41,3 +41,15 @@
 ## Java性能调优
 ###### [Java学习笔记18-类加载机制](https://blog.csdn.net/jwx90312/article/details/103329202)
 
+###### [Java学习笔记19-垃圾回收机制](https://blog.csdn.net/jwx90312/article/details/103339613)
+
+###### [Java学习笔记20-JVM内置命令工具](https://blog.csdn.net/jwx90312/article/details/103358038)
+
+###### [Java学习笔记21-性能调优实战](https://blog.csdn.net/jwx90312/article/details/103690766)
+
+###### [代码优化：常量中枚举与表驱动的应用](https://blog.csdn.net/jwx90312/article/details/103752498)
+
+## Java相关配置
+###### [logback-spring日志配置详解](https://blog.csdn.net/jwx90312/article/details/103560709)
+
+###### [Jedis连接池配置详解](https://blog.csdn.net/jwx90312/article/details/103560722)
