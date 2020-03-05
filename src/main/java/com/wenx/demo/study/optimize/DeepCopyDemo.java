@@ -153,6 +153,11 @@ public class DeepCopyDemo {
         }
 
         @Override
+        public int hashCode() {
+            return id.hashCode();
+        }
+
+        @Override
         public String toString() {
             return "[User: " + this.hashCode() + ",id:" + id + "]";
         }
