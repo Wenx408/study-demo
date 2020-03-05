@@ -12,8 +12,8 @@ public class BubbleSort<T extends Comparable<T>> implements Sort<T> {
     @Override
     public void sort(T[] values) {
         int size = values.length;
-        for (int i = 0, num = 1; i < size - 1; i++) {
-            for (int j = 0; j < size - i - 1; j++, num++) {
+        for (int i = 1, num = 1; i < size; i++) {
+            for (int j = 0; j < size - i; j++, num++) {
                 System.out.printf("第%02d轮：%s [%d > %d ?] ", num, Arrays.toString(values),
                         values[j], values[j + 1]);
                 if (values[j].compareTo(values[j + 1]) == 1) {
@@ -28,7 +28,7 @@ public class BubbleSort<T extends Comparable<T>> implements Sort<T> {
     }
 
     public static void main(String[] args) {
-        Integer[] values = {2, 5, 4, 3, 1};
+        Integer[] values = {4, 2, 1, 3, 5};
         Sort<Integer> sort = new BubbleSort<>();
         long startTime = System.currentTimeMillis();
         sort.sort(values);
