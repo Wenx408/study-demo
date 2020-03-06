@@ -19,10 +19,25 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T> {
 
     private void sort(T[] values, int low, int high) {
         if (low < high) {
+            dealPivot(values, low, high);
             int pivotIdx = partition(values, low, high);
             sort(values, low, pivotIdx - 1);
             sort(values, pivotIdx + 1, high);
         }
+    }
+
+    private void dealPivot(T[] values, int low, int high) {
+        int mid = (low + high) / 2;
+        if (values[low].compareTo(values[mid]) == 1) {
+            swap(values, low, mid);
+        }
+        if (values[low].compareTo(values[high]) == 1) {
+            swap(values, low, high);
+        }
+        if (values[high].compareTo(values[mid]) == -1) {
+            swap(values, high, mid);
+        }
+        swap(values, high - 1, mid);
     }
 
     private int partition(T[] values, int low, int high) {
@@ -45,6 +60,12 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T> {
         // 基准值填补到坑3中，准备分治递归快排
         values[l] = pivot;
         return l;
+    }
+
+    private void swap(T[] values, int a, int b) {
+        T t = values[a];
+        values[a] = values[b];
+        values[b] = t;
     }
 
     public static void main(String[] args) {
