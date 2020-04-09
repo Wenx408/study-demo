@@ -20,7 +20,5 @@ public class StudyDemoApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StudyDemoApplication.class, args);
-
-        TestDO testDO = DaoUtils.getTest(1);
     }
 }
