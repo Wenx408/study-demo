@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean标签属性
+         id：指定bean的id，用于从容器中获取对象
+         class：指定类的全限定类名，用于反射创建对象，默认调用无参构造函数
+         scope：指定对象的作用范围。singleton：单例（默认）；prototype：多例
+         lazy-init：是否懒加载（延迟加载），默认立即加载
+         init-method：指定类中的初始化方法
+         destroy-method：指定类中销毁方法
+    -->
+    <bean id="beanService"
+          class="com.wenx.demo.basis.spring.service.impl.BeanServiceImpl"
+          scope="singleton"
+          lazy-init="true"
+          init-method="init"
+          destroy-method="destroy">
+    </bean>
+
+    <!-- 实例化Bean的三种方式 -->
+    <!-- 1.使用默认无参构造函数。
+         bean标签仅配置id和class属性，但未配置其他属性和标签时，使用默认构造函数创建bean对象。
+         如果类中没有默认构造函数，则对象创建失败。
+    -->
+    <bean id="bean1Service" class="com.wenx.demo.basis.spring.service.impl.BeanServiceImpl"></bean>
+
+    <!-- 2.使用静态工厂的方法创建对象（使用某个类中的静态方法创建对象，并交给spring容器管理）
+         id：指定bean的id，用于从容器中获取对象
+         class：指定静态工厂的全限定类名
+         factory-method：指定生产对象的静态方法
+    -->
+    <bean id="bean2Service" class="com.wenx.demo.basis.spring.factory.StaticFactory" factory-method="getBeanService"></bean>
+
+    <!-- 3.使用实例工厂的方法创建对象（使用某个类中的方法创建对象，并交给spring容器管理）
+         先创建工厂交给spring容器管理，然后调用工厂里面的方法来创建bean对象
+         id：指定bean的id，用于从容器中获取对象
+         class：指定静态工厂的全限定类名
+         factory-bean：指定实例工厂bean的id
+         factory-method：指定实例工厂中创建对象的方法
+    -->
+    <bean id="instanceFactory" class="com.wenx.demo.basis.spring.factory.InstanceFactory"></bean>
+    <bean id="bean3Service" factory-bean="instanceFactory" factory-method="getBeanService"></bean>
+</beans>

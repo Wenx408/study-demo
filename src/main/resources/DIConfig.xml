@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 依赖注入的三种方式 -->
+    <!-- 1.构造函数注入，使用类中的构造函数给成员变量赋值，通过配置的方式让spring框架来为我们注入。
+         标签：constructor-arg
+         其属性：
+                index：指定参数在构造函数参数列表的索引位置
+                type：指定参数在构造函数中的数据类型
+                name：指定参数在构造函数中的名称
+                value：指定参数的值，可以是基本数据类型和String类型
+                ref：指定参数的值，可以是其他配置的bean等引用类型
+    -->
+    <bean id="di1Service" class="com.wenx.demo.basis.spring.service.impl.DI1ServiceImpl">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="18"></constructor-arg>
+        <constructor-arg name="birthday" ref="now"></constructor-arg>
+    </bean>
+
+    <bean id="now" class="java.util.Date"></bean>
+
+    <!-- 2.set方法注入，使用set方法给类中的成员变量赋值，通过配置的方式让spring框架来为我们注入。
+         标签：property
+         其属性：
+                name：指定类中set方法后面的部分
+                value：指定参数的值，可以是基本数据类型和String类型
+                ref：指定参数的值，可以是其他配置的bean等引用类型
+    -->
+    <bean id="di21Service" class="com.wenx.demo.basis.spring.service.impl.DI2ServiceImpl">
+        <property name="name" value="张三"></property>
+        <property name="age" value="18"></property>
+        <property name="birthday" ref="now"></property>
+    </bean>
+
+    <!-- 使用名称空间注入数据，本质还是set方法注入 -->
+    <bean id="di22Service"
+          class="com.wenx.demo.basis.spring.service.impl.DI2ServiceImpl"
+          p:name="张三" p:age="18" p:birthday-ref="now">
+    </bean>
+
+    <!-- 注入集合属性，本质还是set方法注入 -->
+    <bean id="di3Service" class="com.wenx.demo.basis.spring.service.impl.DI3ServiceImpl">
+        <!-- 在注入集合数据时，只要结构相同，标签可以互换 -->
+        <!-- 给数组注入数据 -->
+        <property name="strings">
+            <array>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </array>
+        </property>
+        <!-- 注入list集合数据 -->
+        <property name="lists">
+            <list>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+        <!-- 注入set集合数据 -->
+        <property name="sets">
+            <set>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </set>
+        </property>
+        <!-- 注入Map数据 -->
+        <property name="maps">
+            <map>
+                <entry key="testA" value="aaa"></entry>
+                <entry key="testB">
+                    <value>bbb</value>
+                </entry>
+            </map>
+        </property>
+        <!-- 注入properties数据 -->
+        <property name="props">
+            <props>
+                <prop key="testA">aaa</prop>
+                <prop key="testB">bbb</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 3.使用注解方式注入，后面会有相应介绍。 -->
+</beans>
