@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 无成员变量赋值可使用默认无参构造函数实例化Bean，仅需配置id和class属性（bean所在的全限定类名） -->
+    <bean id="springDao" class="com.wenx.demo.basis.spring.dao.impl.SpringDaoImpl"></bean>
+    <!-- 有成员变量赋值还需配置依赖注入，通过spring框架来赋值 -->
+    <bean id="springService" class="com.wenx.demo.basis.spring.service.impl.SpringServiceImpl">
+        <!-- 构造函数注入 -->
+        <constructor-arg name="springDao" ref="springDao"></constructor-arg>
+    </bean>
+</beans>
