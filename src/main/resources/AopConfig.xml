@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 配置Spring的IoC -->
+    <bean id="aopService" class="com.wenx.demo.basis.spring.service.impl.AopServiceImpl"></bean>
+    <!-- 配置日志通知 -->
+    <bean id="logger" class="com.wenx.demo.basis.spring.aspect.Logger"></bean>
+
+    <!-- 配置AOP -->
+    <aop:config>
+        <!-- 配置切入点表达式，指定对哪些类的哪些方法进行增强。
+             此标签写在aop:aspect标签外面所有切面可用，而写在aop:aspect标签内部只能当前切面使用。
+             标签：aop:pointcut
+             其属性：
+                    id：用于给切入点表达式提供一个唯一标识。
+                    expression：用于定义切入点表达式。
+             表达式语法：execution([访问修饰符] 返回值类型 包名.类名.方法名(参数))
+             全匹配方式：
+                public void com.wenx.demo.basis.spring.service.impl.AopServiceImpl.save()
+             省略访问修饰符：
+                void com.wenx.demo.basis.spring.service.impl.AopServiceImpl.save()
+             返回值类型使用通配符*号，表示任意返回值：
+                * com.wenx.demo.basis.spring.service.impl.AopServiceImpl.save()
+             包名使用通配符*号，表示任意包。但是有几级包，就需要写几个*：
+                * *.*.*.*.*.AopServiceImpl.save()
+             包名使用..来表示当前包及其子包：
+                * com..AopServiceImpl.save()
+             类名使用通配符*号，表示任意类：
+                * com..*.save()
+             方法名使用通配符*号，表示任意方法：
+                * com..*.*()
+             参数列表数据类型：
+                基本类型可直接写名称：* com..*.*(int)
+                引用类型写全限定类名：* com..*.*(java.lang.String)
+             参数列表使用通配符*号，表示任意数据类型，但是必须有参数：
+                * com..*.*(*)
+             参数列表使用..，表示任意数据类型，有无参数均可：
+                * com..*.*(..)
+             全通配方式：
+                * *..*.*(..)
+
+             开发中常用写法：切到业务层实现类下的所有方法
+                * com.wenx.demo.basis.spring.service.impl.*.*(..)
+        -->
+        <aop:pointcut id="pc1" expression="execution(* com.wenx.demo.basis.spring.service.impl.*.*(..))"></aop:pointcut>
+        <!-- 配置切面
+             标签：aop:aspect
+             其属性：
+                    id：用于给切面提供一个唯一标识。
+                    ref：用于引用配置好的通知类bean的id。
+        -->
+        <aop:aspect id="logAdvice" ref="logger">
+            <!-- 配置前置通知：指定增强的方法在切入点方法之前执行
+            <aop:before method="beforePrintLog" pointcut-ref="pc1"></aop:before>
+            -->
+
+            <!-- 配置后置通知：在切入点方法正常执行之后执行，它与异常通知永远只能执行一个
+            <aop:after-returning method="afterReturningPrintLog" pointcut-ref="pc1"></aop:after-returning>
+            -->
+
+            <!-- 配置异常通知：在切入点方法执行产生异常之后执行，它与后置通知永远只能执行一个
+            <aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pc1"></aop:after-throwing>
+            -->
+
+            <!-- 配置最终通知：无论切入点方法是否正常执行它都会在其后面执行
+            <aop:after method="afterPrintLog" pointcut-ref="pc1"></aop:after>
+            -->
+
+            <!-- 配置环绕通知
+                 标签：aop:around
+                 其属性：
+                        method：用于指定通知类中增强方法的名称
+                        pointcut：用于指定切入点的表达式
+                        pointcut-ref：用于指定切入点表达式的引用
+            -->
+            <aop:around method="aroundPrintLog" pointcut-ref="pc1"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
