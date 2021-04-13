@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -20,6 +22,8 @@ import javax.annotation.Resource;
  */
 @Service("annotationService")
 @Scope("singleton")
+// 只读型事务配置
+//@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class AnnotationServiceImpl implements ISpringService {
 
     @Autowired
@@ -37,6 +41,8 @@ public class AnnotationServiceImpl implements ISpringService {
     private String username;
 
     @Override
+    // 读写事务配置
+    //@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void save() {
         System.out.println("AnnotationServiceImpl的save方法执行了……");
 
